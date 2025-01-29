@@ -3,6 +3,11 @@ name: Build and Deploy to Netlify
 
 on:
   workflow_dispatch:
+    inputs:
+      deploy-netlify:
+        type: boolean
+        description: Enable Netlify deployment
+        default: true
 
 jobs:
   app-setup:
@@ -19,11 +24,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run tests
+        run: npm run test
+
       - name: Build app
         run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
+        if: ${{ inputs.deploy-netlify }}
         with:
           publish-dir: "./dist"
           production-branch: main
