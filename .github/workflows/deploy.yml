@@ -9,7 +9,7 @@ jobs:
   deploy-netlify:
     uses: ./.github/workflows/deploy-netlify.yml
     secrets: inherit
-a
+
   deploy-vercel:
     needs: deploy-netlify
     uses: ./.github/workflows/deploy-vercel.yml
