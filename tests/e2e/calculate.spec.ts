@@ -3,9 +3,14 @@ import { test, expect } from "@playwright/test";
 test("clicking on button increases count", async ({ page }) => {
   await page.goto("/");
   console.log(process.env.DEPLOY_URL);
+  console.log(page.url());
 
   // Click the button
-  await page.getByRole("button", { name: "Increase" }).click();
+  // await page.getByRole("button", { name: "Increase" }).click();
+  const button = page.getByRole("button", { name: "Increase" });
+  await button.waitFor({ state: "visible" });
+  await button.click();
+
   const countElement = page.getByLabel("count");
   await expect(countElement).toHaveText(/Count: 1/);
 
