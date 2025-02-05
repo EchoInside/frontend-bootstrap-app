@@ -9,5 +9,5 @@ runs:
       shell: bash
 
     - name: Run e2e tests
-      run: npx playwright test
+      run: npm run test:e2e
       shell: bash
