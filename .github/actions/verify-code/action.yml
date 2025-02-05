@@ -1,0 +1,17 @@
+name: Verify code
+description: Verify code by running tests and linters
+
+runs:
+  using: "composite"
+  steps:
+    - name: Lint code
+      run: npm run lint
+      shell: bash
+
+    - name: Run unit tests
+      run: npm run test
+      shell: bash
+
+    - name: Run e2e tests
+      run: npx playwright test
+      shell: bash
