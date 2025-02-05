@@ -11,7 +11,3 @@ runs:
     - name: Run unit tests
       run: npm run test
       shell: bash
-
-    - name: Run e2e tests
-      run: npx playwright test
-      shell: bash

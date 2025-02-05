@@ -1,0 +1,13 @@
+name: E2E Tests
+description: Verify code by running e2e tests
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+      shell: bash
+
+    - name: Run e2e tests
+      run: npx playwright test
+      shell: bash
