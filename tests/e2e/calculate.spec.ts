@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("clicking on button increases count", async ({ page }) => {
   await page.goto("/");
+  console.log(process.env.DEPLOY_URL);
 
   // Click the button
   await page.getByRole("button", { name: "Increase" }).click();

@@ -33,15 +33,15 @@ runs:
         VITE_ENVIRONMENT: Preview
       run: |
         vercel pull --yes --environment=preview --token=${{ inputs.vercel-token }}
-        vercel build --token=${{ inputs.vercel-token }}
+        vercel build VITE_ENVIRONMENT=PREVIEW --token=${{ inputs.vercel-token }}
         DEPLOY_OUTPUT="$(vercel deploy --token=${{ inputs.vercel-token }})"
         DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep http | tail -n 1)
         echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
       shell: bash
 
-    # - name: E2E tests
-    #   if: ${{ inputs.mode == 'preview' }}
-    #   uses: ./.github/actions/e2e-tests
+    - name: E2E tests
+      if: ${{ inputs.mode == 'preview' }}
+      uses: ./.github/actions/e2e-tests
 
     - name: Comment with preview URL
       if: ${{ inputs.mode == 'preview' }}
