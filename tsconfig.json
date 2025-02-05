@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "types": ["node"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/types/vite-env.d.ts",
+    "tests/**/*.ts",
+    "vite.config.ts",
+    "playwright.config.ts"
+  ],
+  "lib": ["WebWorker"],
+  "types": ["vitest/globals", "node"]
+}
