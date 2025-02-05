@@ -42,7 +42,6 @@ runs:
     - name: E2E tests
       if: ${{ inputs.mode == 'preview' }}
       uses: ./.github/actions/e2e-tests
-      shell: bash
 
     - name: Comment with preview URL
       if: ${{ inputs.mode == 'preview' }}
