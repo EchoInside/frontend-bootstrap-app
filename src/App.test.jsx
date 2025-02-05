@@ -6,10 +6,12 @@ describe("App Component", () => {
   it("should increase count when the button is clicked", () => {
     render(<App />);
 
-    const button = screen.getByRole("button", { name: /count is 0/i });
+    const button = screen.getByRole("button", { name: /Increase/i });
 
     fireEvent.click(button);
 
-    expect(button.textContent).toBe("count is 1");
+    const countElement = screen.getByLabelText("count").textContent;
+
+    expect(countElement).toBe("Count: 1");
   });
 });
