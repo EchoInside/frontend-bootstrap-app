@@ -20,6 +20,8 @@ jobs:
         uses: ./.github/actions/verify-code
 
       - name: Build app
+        env:
+          VITE_ENVIRONMENT: production
         run: npm run build
 
       - name: Configure AWS Credentials
