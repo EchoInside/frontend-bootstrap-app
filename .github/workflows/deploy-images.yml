@@ -6,7 +6,7 @@ on:
       - "images/**"
 
 jobs:
-  deploy:
+  deploy-images:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
